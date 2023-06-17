@@ -1,9 +1,0 @@
-node_modules
-public
-scaffolds
-sources
-db.json
-package-lock.json
-package.json
-_config.landscape.yml
-.DS_Store
