@@ -1,4 +1,15 @@
-# C语言循环执行顺序以及用if模拟循环的探究
+---
+title: 用 goto 模拟C语言循环
+date: "2023-06-20 23:40:31"
+tags: c
+categories: 
+  - Reverse
+description: "介绍各个平台上常用的编译器。"
+toc: true
+indexing: false
+---
+
+# 用 goto 模拟C语言循环
 
 在C语言中常见的循环有`do-while`、`while` 和 `for` 循环。C语法规定了各个循环的执行顺序，下面研究一下汇编的实现方式。最后我们通过 `if + goto` 的判断结构来模拟实现三种循环。
 
