@@ -1,3 +1,14 @@
+---
+title: 函数调用过程的分析
+date: "2023-06-28 09:33:32"
+tags: c
+categories: 
+  - Reverse
+description: "分析C函数在调用过程所发生的变化过程。"
+toc: true
+indexing: false
+---
+
 # 函数调用过程
 
 函数调用的过程就是压栈和出栈的过程。

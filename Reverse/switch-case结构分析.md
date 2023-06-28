@@ -1,3 +1,14 @@
+---
+title: if-else与switch-case
+date: "2023-06-28 09:32:06"
+tags: c
+categories: 
+  - Reverse
+description: "switch-case表结构的分析。"
+toc: true
+indexing: false
+---
+
 # `if-else` 与 `switch-case`
 
 - `if-else` 可以控制分支的概率，如果把概率较高的分支放在前面效率会更高些。
