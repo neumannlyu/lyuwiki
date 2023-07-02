@@ -1,13 +1,12 @@
 ---
-title: "go get 私有Github仓库"
-date: "2023-06-28 08:59:37"
-tags: git
-categories: 
-  - Tool
-  - Git
-description: "用go get导入私有github的仓库。主要就是导入ssh公钥，以及用ssh连接代替https连接。"
+title: go get 私有Github仓库
+date: '2023-06-28 08:59:37'
 toc: true
 indexing: false
+abbrlink: 406e
+categories:
+  - Tool
+  - Git
 ---
 
 # go get 私有Github仓库

@@ -1,12 +1,11 @@
 ---
 title: 用 goto 模拟C语言循环
-date: "2023-06-20 23:40:31"
-tags: c
-categories: 
-  - Reverse
-description: "介绍各个平台上常用的编译器。"
+date: '2023-06-20 23:40:31'
 toc: true
 indexing: false
+abbrlink: '9384'
+categories:
+  - Reverse
 ---
 
 # 用 goto 模拟C语言循环

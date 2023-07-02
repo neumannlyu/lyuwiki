@@ -1,13 +1,12 @@
 ---
-title: "Git多仓库同步"
-date: "2023-06-08 10:05:38"
-tags: git
-categories: 
-  - Tool
-  - Git
-description: "一个git仓库同时向Github和本地Gitlab同步。"
+title: Git多仓库同步
+date: '2023-06-08 10:05:38'
 toc: true
 indexing: false
+abbrlink: 29ad
+categories:
+  - Tool
+  - Git
 ---
 
 # 场景描述

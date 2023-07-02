@@ -1,12 +1,11 @@
 ---
 title: C常用编译器
-date: "2023-06-12 10:37:59"
-tags: c
-categories: 
-  - Reverse
-description: "介绍各个平台上常用的编译器。"
+date: '2023-06-12 10:37:59'
 toc: true
 indexing: false
+abbrlink: edd2
+categories:
+  - Reverse
 ---
 
 # cl.exe

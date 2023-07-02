@@ -1,12 +1,11 @@
 ---
 title: if-else与switch-case
-date: "2023-06-28 09:32:06"
-tags: c
-categories: 
-  - Reverse
-description: "switch-case表结构的分析。"
+date: '2023-06-28 09:32:06'
 toc: true
 indexing: false
+abbrlink: c756
+categories:
+  - Reverse
 ---
 
 # `if-else` 与 `switch-case`
