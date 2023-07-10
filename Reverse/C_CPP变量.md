@@ -1,3 +1,13 @@
+---
+title: C_CPP变量
+date: '2023-07-10 13:52:10'
+toc: true
+indexing: false
+categories:
+  - Reverse
+abbrlink: d486
+---
+
 变量一般可以简单分为局部变量和全局变量。在这个基础可以使用 *静态* 来修饰这些变量。
 
 # 局部变量
