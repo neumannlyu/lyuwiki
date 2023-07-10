@@ -39,7 +39,7 @@ int main()
 
 已初始化的全局变量是在编译时被写入到可执行文件中，在装载可执行文件时直接被装载到内存中。
 
-![文件中的全局变量](C_CPP变量.assets/image-20230709151935737.png)
+![文件中的全局变量](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305083.png)
 
  `g_number ` 在内存中的地址为 `0x00424d8c`，所以其对应的文件偏移量为 **内存地址 - 内存基址** `0x00024d8c`。
 
@@ -75,7 +75,7 @@ int main()
 }
 ```
 
-![image-20230709170829068](C_CPP变量.assets/image-20230709170829068.png)
+![image-20230709170829068](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305084.png)
 
 
 
@@ -107,19 +107,19 @@ int main()
 }
 ```
 
-![image-20230709181611893](C_CPP变量.assets/image-20230709181611893.png)
+![image-20230709181611893](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305085.png)
 
 可以看出静态局部变量即使命名一样的情况下，编译器仍然可以区分每个静态局部变量。这是由于编译器使用名称重组（又称名称粉碎）机制。
 
 **不同的编译器可能会采用不同的名称重组机制，只要能区分变量即可。**所以VC6.0的C名称重组机制和C++名称重组的机制不一样，导致下面的Bug：
 
-![VC6watch窗口bug](C_CPP变量.assets/image-20230709170103850.png)
+![VC6watch窗口bug](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305086.png)
 
 这是因为代码为C++，采用了C++编译器的名称重组方法，但是VC6的watch窗口采用的是C编译器名称重组机制。将源码的后缀名改成 `.c` 即可。
 
 在编译后的 `obj` 文件中存在名称重组后的命名。
 
-![C++名称重组](C_CPP变量.assets/image-20230709184205721.png)
+![C++名称重组](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305087.png)
 
 ```
 _?number@?1??main@@9@4HA
@@ -137,7 +137,7 @@ _?number@?1??func@@YAXXZ@4HA
 
 把CPP改成C，重新观察一下名称重组：
 
-![image-20230709185433114](C_CPP变量.assets/image-20230709185433114.png)
+![image-20230709185433114](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305088.png)
 
 ```
 _?number@?1??main@@9@9
@@ -190,7 +190,7 @@ int main()
 
 在语法中 `static` 是只会初始化一次，观察静态变量的赋值的代码：
 
-![image-20230709191857211](C_CPP变量.assets/image-20230709191857211.png)
+![image-20230709191857211](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305089.png)
 
 可以看到：**定义静态局部变量的代码没有产生汇编代码，所以这里并没有初始化。**根据前面的分析可以知道已初始化的静态变量的初值是直接写到可执行文件中的，在加载程序时直接就被加载到内存中，不需要再额外赋值。
 
@@ -225,25 +225,25 @@ int main(int argc, char* argv[], char* env[])
 }
 ```
 
-![image-20230709194912082](C_CPP变量.assets/image-20230709194912082.png)
+![image-20230709194912082](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305090.png)
 
 静态变量1初始化为：`0x9999`，静态变量的地址为`00427E90`。
 
 同时有块内存（地址`00427E88`）中的值也发生改变。
 
-![image-20230709195146959](C_CPP变量.assets/image-20230709195146959.png)
+![image-20230709195146959](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305091.png)
 
 静态变量2初始化为：`0x88888888`，静态变量的地址为`00427E94`。
 
 同时有块内存（地址`00427E88`）中的值也发生改变。猜测`00427E88`保存的就是记录静态变量是否初始化的标志。
 
-![image-20230709195327357](C_CPP变量.assets/image-20230709195327357.png)
+![image-20230709195327357](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305092.png)
 
 **在同作用域下，**静态变量3初始化为：`0x88888888`，静态变量的地址为`00427E8C`。
 
 同时有块内存（地址`00427E88`）中的值也发生改变。基本验证了`00427E88`保存的就是记录静态变量是否初始化的标志。
 
-![image-20230709195641365](C_CPP变量.assets/image-20230709195641365.png)
+![image-20230709195641365](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305093.png)
 
 **在调用第二次时，静态变量并不会被初始化。**
 
@@ -282,7 +282,7 @@ int main(int argc, char* argv[], char* env[])
 }
 ```
 
-![image-20230709200033837](C_CPP变量.assets/image-20230709200033837.png)
+![image-20230709200033837](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305094.png)
 
 **这里三个作用域，也使用三个标志值。标志位也不是不变的，也不一定就在变量附近，只要能记录是否初始化了即可。**
 
@@ -310,7 +310,7 @@ int main(int argc, char* argv[], char* env[])
 }
 ```
 
-![image-20230709205331655](C_CPP变量.assets/image-20230709205331655.png)
+![image-20230709205331655](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202307101305095.png)
 
 这样就实现了静态变量多次初始化的效果，打破了C++的语法规则。
 
