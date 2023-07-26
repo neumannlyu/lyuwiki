@@ -1,3 +1,12 @@
+---
+title: Struct Of C Language
+date: '2023-07-26:49:33'
+toc: true
+indexing: false
+categories:
+  - Reverse
+abbrlink: d2d9
+---
 # What is struct?
 
 C struct is a user-defined data type that allows data items of different types to be combined to form a single entity. Structs are a way of representing composite data in C language that allows multiple members to be defined in a single struct. Each member can be of different data type.
