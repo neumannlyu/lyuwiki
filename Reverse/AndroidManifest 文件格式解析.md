@@ -1,3 +1,12 @@
+---
+title: AndroidManifest 文件格式解析
+date: '2023-08-02 16:29:01'
+toc: true
+indexing: false
+categories:
+  - Reverse
+abbrlink: fa89
+---
 在研究一个APK应用的时候发现这个APK不能在Jadx中正常解析，经过初步分析后，发现APK中的Android Manifest.xml文件不能够正常反编译。所以猜测AndroidManifest.xml文件被修改了，导致了不能够正常解析，所以需要针对AndroidManifest.xml编译后的文件进行文件格式的分析，以后CTF出题也可以用相关知识点，丰富公司的题型。
 
 # 原始AndroidManifest.xml文件
