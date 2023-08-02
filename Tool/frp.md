@@ -1,3 +1,12 @@
+---
+title: About Frp
+date: '2023-07-29 12:24:13'
+toc: true
+indexing: false
+categories:
+  - Tool
+abbrlink: 9b50
+---
 
 We can use frp to achieve intranet penetration, to achieve remote desktop to our LAN Windows computers.
 
@@ -211,5 +220,4 @@ remote_port = 7001
 ### 开机自启
 
 通过 Windows 的计划任务来进行开机自启。
-
 
