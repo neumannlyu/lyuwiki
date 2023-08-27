@@ -1,5 +1,5 @@
 ---
-  title: C_CPP变量
+title: C_CPP变量
 date: '2023-07-10 13:52:10'
 toc: true
 indexing: false
