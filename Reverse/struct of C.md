@@ -618,3 +618,109 @@ the above code is compiled and executed, it produces the following results:
 30
 30
 ```
+
+
+
+# 共用体
+
+共用体使用关键字 `union`。共用体就是将一块内存空间按照不同的解释方式进行解释。
+
+## 共用体本质
+
+共用体本质上是一种语法糖，等同于结构体取成员强转成对应的类型。例如下面的代码：
+
+```c++
+#include <stdio.h>
+
+union uTest
+{
+	char ch;
+	int i;
+	float f;
+	double d;
+	char str[10];
+};
+
+struct stTest
+{
+	char str[10];
+};
+int main(int argc, char* argv[], char* env[])
+{
+	uTest t1;
+	stTest t2;
+	t1.ch = 'a';
+	*(char*)(t2.str) = 'a';
+	return 0;
+}
+```
+
+查看对应的汇编代码，可以验证这两处产生的汇编代码是一致的。
+
+![image-20230903133600825](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202309031336888.png)
+
+## 共用体的大小
+
+一般都认为共用体的大小为所占空间最大成员的大小。
+
+猜测下面代码的输出结果：
+
+```c
+#include <stdio.h>
+
+union uTest
+{
+	char ch;
+	int i;
+	float f;
+	double d;
+	char str[10];
+};
+
+struct stTest
+{
+	char str[10];
+};
+int main(int argc, char* argv[], char* env[])
+{
+	printf("%d\r\n", sizeof(uTest));
+	printf("%d\r\n", sizeof(stTest));
+	return 0;
+}
+```
+
+![image-20230903140955684](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202309031409749.png)
+
+**默认情况下，VC6.0 的结构体对齐值为 8 字节对齐。**
+
+**共用体的大小还需要满足模上对齐值的结果为 0。**即：
+
+```
+1. 最大成员所占空间为共用体的大小
+union size = max(number1, number2, ..., numberN)
+2. 对齐
+union after align size 需要满足 size % 对齐值 == 0 
+```
+
+所以在本例中共用体的基础大小为 10 字节，但是经过对齐（8 字节）后，共用体的实际大小为 16 字节。
+
+如果把结构体的对齐值修改为 1或者 2，该共用体的大小就为 10 字节了；如果修改为 4 字节，则该共用体的大小为 12 字节。
+
+![image-20230903143024474](https://pics-place.oss-cn-shanghai.aliyuncs.com/pic/202309031430548.png)
+
+# 枚举类型
+
+```c
+enum eEnumType
+{
+	Success,
+	Error1,
+	Error2
+} e;
+```
+
+`eEnumType` 为枚举类型；`Success`、`Error1`、`Error2` 为枚举常量；`e` 为枚举变量。
+
+**枚举常量值：**在不给值的情况下，由编译器从 0 开始赋值。如果赋予了初值，则从初值开始赋值，需要编程人员自行控制每个枚举常量的唯一性。
+
+枚举变量只能由枚举常量赋值。
